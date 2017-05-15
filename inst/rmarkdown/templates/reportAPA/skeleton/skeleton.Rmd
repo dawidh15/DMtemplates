@@ -276,6 +276,21 @@ Para cuadros hechos a través de una función en \textsf{R}, utilizar las siguie
 \endgroup
 ```
 
+Este es un ejemplo de una función que imprime texto para ser procesado en Latex. Notar el `doble backslash` y la separación entre éstos y los comandos.
+
+
+```{r , eval=FALSE}
+LLLcpueTabtmp <- apply(X = LLLcpueTab,
+                    MARGIN = 2,
+                    FUN = function(X){
+                      val <- X/sum(X)
+                      val <- signif(100*val, digits=2)
+                      val <- paste("\\", "SI","{" ,val,"}","{","\\","percent","}",sep="")
+                      return(val)
+                      } )
+LLLcpueDF <- data.frame(CPUE=rownames(LLLcpueTab),LLLcpueTabtmp)
+
+```
 
 \doublespacing
 
