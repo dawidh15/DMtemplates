@@ -208,10 +208,12 @@ $date$\par % Location and year
 
 \vspace*{2\baselineskip} % Whitespace between location/year and editors
 
+$if(language="spanish")$
 Autores: \\[\baselineskip]
-%$if(author)$
-%\Large{$for(author)$$author$$sep$ \\  $endfor$ \par}
-%$endif$
+$else$
+Authors: \\[\baselineskip]
+$endif$
+
 
 
 $if(authors)$
