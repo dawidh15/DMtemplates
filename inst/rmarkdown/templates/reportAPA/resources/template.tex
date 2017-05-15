@@ -177,6 +177,7 @@ $endif$
 \sisetup{detect-all = true, detect-family=true}
 \usepackage{chngcntr}
 \usepackage{calc}
+\usepackage{ifthen}
 
 
 
@@ -189,6 +190,14 @@ $endif$
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
+
+
+% Inspired in the following post https://tex.stackexchange.com/questions/195491/ifthenelse-equal-string-comparison-fails
+\newcommand{\authorsLanguage}[1]{
+  \ifthenelse{\equal{#1}{spanish}}
+  {Autores: \\[\baselineskip]}%TRUE
+  {Authors: \\[\baselineskip]}%FALSE
+}
 
 \newcommand*{\titleGP}{\begingroup % Create the command for including the title page in the document
 \centering % Center all text
@@ -208,12 +217,8 @@ $date$\par % Location and year
 
 \vspace*{2\baselineskip} % Whitespace between location/year and editors
 
-$if(language="spanish")$
-Autores: \\[\baselineskip]
-$else$
-Authors: \\[\baselineskip]
-$endif$
 
+\authorsLanguage{$language$} %See command definition above [DM]
 
 
 $if(authors)$
