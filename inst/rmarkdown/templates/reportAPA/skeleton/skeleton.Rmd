@@ -1,0 +1,344 @@
+---
+title: "El título del reporte"
+subtitle: "v0.0.0.0"
+abstract: |
+  The abstract of the article.
+  
+authors: 
+- name: |
+      Author 1,  
+      Author 1 b
+  affiliation: Department of YYY, University of XXX
+  
+- name: Author 2
+  affiliation: Department of ZZZ, University of WWW
+  
+date:  "`r format(Sys.Date(), '%d de %B, %Y')`"
+publisher: "Some Publisher"
+output: DMtemplates::APAreport
+latex_engine: xelatex
+toc: true
+toc-depth: 2
+lof: true
+lot: true
+number_sections: true
+papersize: letter
+fontsize: 12pt
+documentclass: report
+classoption: twoside, openright
+language: "spanish"
+secnumdepth: 1
+geometry: "top=2.5cm, bottom=2.5cm, left=3cm, right=3cm"
+fancyHeader: true
+mainfont: Cambria
+mathfont: Cambria
+sansfont: Arial
+preamble: |
+    \usepackage{fancyhdr}
+    
+    \pagestyle{fancy}
+    
+    \lhead{APA Template}
+    
+    \rhead{D. Martinez}
+    
+    \setlength\parindent{24pt}
+    
+    \usepackage{setspace}
+    
+    \singlespacing
+    
+    \counterwithin{figure}{chapter}
+    
+    \counterwithin{table}{chapter}
+    
+    \newtheorem{theorem}{Teorema}
+    
+    \newtheorem{algorithm}{Algoritmo}
+
+    \newtheorem{axiom}{Axioma}
+    
+    \newtheorem{definition}{Definición}
+
+    \newtheorem{example}{Ejemplo}
+    
+    \newtheorem{exercise}{Ejercicio}
+    
+    \newtheorem{lemma}{Lemma}
+    
+    \newtheorem{proposition}{Proposición}
+    
+    \newtheorem{remark}{Remarca}
+    
+    \newtheorem{solution}{Solución\;\thesection\,.}
+    
+    \newtheorem{summary}{Resumen}
+    
+bibliography: ExampleBIB.bib
+csl: apa.csl
+urlcolor: blue
+citecolor: black
+linkcolor: black
+year: "`r as.POSIXlt(Sys.time())$year+1900`"
+spacing: siglespacing
+---
+
+```{r settings}
+knitr::knit_hooks$set(inline = identity) 
+```
+
+
+# Problemas al correr
+
+- Actualizar MikTeX, RStudio
+
+- Actualizar todos los paquetes de MikTeX, usando el Update (Admin).
+
+- Instalar todos los paquetes de R en la librería por defecto
+
+- Ir al `Package Manager (Admin)` y verificar que "xetex" esté instalado
+
+# R code
+
+Can be inserted in regular R markdown blocks.
+
+```{r , echo=TRUE}
+
+x <- 1:10
+x
+```
+
+
+# Seccion
+
+\noindent Hay que añadir `\noindent` al inicio del primer párrafo de una sección para no indentarlo. Cada párrafo posterior se indentará. \index{indentación}
+
+Por ejemplo, este párrafo tiene una sangría. La sangría se controla en el preámbulo del documento.
+
+
+## Subsección
+\index{secciones}
+
+### Tercer nivel
+
+#### Cuarto Nivel
+
+# Matematica
+
+## Sistema Internacional de unidades
+
+Acepta el paquete siunitx. Solo introducir un comando latex normal, ejemplo `\SI{1000000}{\joules.\metre\per\second\cubed}`: \SI{1000000}{\joule.\metre\per\second\cubed}. \index{SI: Sistema internacional de unidades}
+
+\index{display equations, normal}
+
+$$
+\SI{1000000}{\joule.\metre\per\second\cubed}.
+$$
+
+##  Ecuaciones
+
+Se pueden usar ambientes normales de latex \index{ecuaciones}
+
+```
+\begin{equation}
+\begin{split}
+	\int_0^4{ \left[\int_0^{\sqrt{4-y}} {\frac{xe^{2y}}{4-y}}\,dx \right] }\,dy &= \int_0^4{ \frac{e^{2y}}{4-y} \left[\int_0^{\sqrt{4-y}}{x}\,dx \right] }\,dy\\
+	&= \int_0^4{ \frac{e^{2y}}{4-y} \left[ \frac{x^2}{2} \right]_0^{\sqrt{4-y}} }\,dy\\
+	&= \int_0^4{ \frac{e^{2y}}{\cancel{4-y}} \times \frac{\cancel{\sqrt{4-y}^2}}{2}  }\,dy\\
+	&= \frac{1}{2} \int_0^4{ e^{2y} }\,dy\\
+	&= \frac{1}{2} \left[ \frac{e^{2y}}{2} \right]_0^4\\
+	&= \frac{1}{4}\left( e^8-1 \right)\\
+\end{split}
+  (\#eq:foo)
+\end{equation}
+```
+\index{display equations, Latex}
+
+\begin{equation}
+\begin{split}
+	\int_0^4{ \left[\int_0^{\sqrt{4-y}} {\frac{xe^{2y}}{4-y}}\,dx \right] }\,dy &= \int_0^4{ \frac{e^{2y}}{4-y} \left[\int_0^{\sqrt{4-y}}{x}\,dx \right] }\,dy\\
+	&= \int_0^4{ \frac{e^{2y}}{4-y} \left[ \frac{x^2}{2} \right]_0^{\sqrt{4-y}} }\,dy\\
+	&= \int_0^4{ \frac{e^{2y}}{\cancel{4-y}} \times \frac{\cancel{\sqrt{4-y}^2}}{2}  }\,dy\\
+	&= \frac{1}{2} \int_0^4{ e^{2y} }\,dy\\
+	&= \frac{1}{2} \left[ \frac{e^{2y}}{2} \right]_0^4\\
+	&= \frac{1}{4}\left( e^8-1 \right)
+\end{split}
+  (\#eq:foo)
+\end{equation}
+
+Para referenciar una ecuación se usa `\@ref(eq:foo)`, como en ecuacion \@ref(eq:foo) \index{referencias. Ecuaciones}
+
+## Teoremas y Otros
+
+Ejemplo tomado de la página de [bookdown](https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#equations): \index{teoremas}
+
+
+```{theorem, pyth, name="Pythagorean theorem"}
+For a right triangle, if $c$ denotes the length of the hypotenuse
+and $a$ and $b$ denote the lengths of the other two sides, we have
+
+$$a^2 + b^2 = c^2$$
+```
+
+
+Llamar al teorema usando el prefijo apropiado. Ver link al libro. Por ejemplo ver \@ref(thm:pyth), que se llama con `\@ref(thm:pyth)` \index{referencias. a teoremas}
+
+# Cuadros
+
+Para cambiar la fuente, el espaciado y referenciar el cuadro, ver siguiente ejemplo: \index{cuadros y su formato}
+
+```
+\begingroup
+\sffamily
+\small
+\singlespacing
+
+    
+| Unidad | Equivalencia en SI|
+|------------:|----------:|
+| 1 vara | \SI{0.8393}{\metre}|
+| 1 cuarta | \SI{0.209825}{\metre}|
+| 1 tercia | \SI{0.2797}{\metre}|
+| 1 mecate | \SI{20.1432}{\metre}|
+| 1 manzana | \SI{6960.6}{\metre\squared}
+| 1 caja | \SI{16}{\kilogram}|
+| 1 fanega | \SI{92}{\kilogram}|
+| 1 carga | \SI{161}{\kilogram}|
+| 1 botella | \SI{0.63}{\litre}|
+| 1 cajuela | \SI{16.6}{\litre}|
+
+Table: (\#tab:OldUnits) Unidades antiguas utilizadas en Costa Rica, y su equivalencia con el Sistema Internacional de Unidades.
+
+\endgroup
+
+\doublespacing
+```
+
+\begingroup
+\sffamily
+\small
+
+\singlespacing
+
+    
+| Unidad | Equivalencia en SI|
+|------------:|----------:|
+| 1 vara | \SI{0.8393}{\metre}|
+| 1 cuarta | \SI{0.209825}{\metre}|
+| 1 tercia | \SI{0.2797}{\metre}|
+| 1 mecate | \SI{20.1432}{\metre}|
+| 1 manzana | \SI{6960.6}{\metre\squared}
+| 1 caja | \SI{16}{\kilogram}|
+| 1 fanega | \SI{92}{\kilogram}|
+| 1 carga | \SI{161}{\kilogram}|
+| 1 botella | \SI{0.63}{\litre}|
+| 1 cajuela | \SI{16.6}{\litre}|
+
+
+Table: (\#tab:OldUnits) Unidades antiguas utilizadas en Costa Rica, y su equivalencia con el Sistema Internacional de Unidades.
+\index{cuadros. Encabezados y referencias}
+
+\endgroup
+
+
+Después del grupo, las unidades deberían vover a la familia por defecto: \SI{13.9752936}{\kilo\ampere.\joule}. \index{espaciado entre líneas}
+
+
+Para cuadros hechos a través de una función en \textsf{R}, utilizar las siguientes opciones para mantener coherencia de formato. Utilizar `\@ref(tab:chunkLabel)` para citar. Usar `results='asis'`
+
+```
+\begingroup
+\sffamily
+\small
+\singlespacing
+
+{Begin R chunk here!}
+```
+
+```{r chunkLabel,echo=TRUE,results='asis', warning=FALSE,eval=FALSE}
+
+ knitr::kable(aDataFrame,
+    col.names = c("Column name 1",
+    "Column name 2", 
+    "Column name 3",
+    "Column name n"),
+    align =c('r','c','c','c'),
+    row.names = FALSE,
+    escape = TRUE,
+    booktabs=TRUE,
+    longtable=TRUE,
+    caption = "LongTitle")
+    
+
+```
+
+```
+\endgroup
+```
+
+
+\doublespacing
+
+Se establece que este sistema será el único permitido para actos legales. Además, se autoriza al Poder Ejecutivo a colectar los pesos y medidas que deben servir como "modelo", a través de los cuales se emitirán los reglamentos respectivos.
+
+Se establece que este sistema será el único permitido para actos legales. Además, se autoriza al Poder Ejecutivo a colectar los pesos y medidas que deben servir como "modelo", a través de los cuales se emitirán los reglamentos respectivos.
+
+
+
+# Citas
+
+Para citar en paréntesis `[@Palacios1993]` [@Palacios1993]. Para citar en texto `@Palacios1993`: @Palacios1993.  Varias citas `[Palacios1993, 3; y ver a @Nedelec1990; @EUR18405]`: [Palacios1993, 3; y ver a @Nedelec1990; @EUR18405; @pangaGlobefishFeb2017]. \index{referencias. Citar en texto}
+
+Para que salga en referencias, pero no en citas \index{referencias. No citar}
+
+```
+---
+nocite: | 
+  @ref1, @ref2, @refn
+...
+
+```
+
+# Formatos especiales
+
+Para evitar númerar una sección se puede utilizar \index{formato especial}
+
+```
+# Bibliografía {-}
+```
+Para iniciar con los anexos utilizar>
+
+```
+# (APPENDIX) Anexo {-}
+
+# Anexo I
+
+Este es el anexo 1
+```
+
+## Indexado
+
+Si se quiere un índice por palabras escribir `\index{palabra de interés}`. Por ejemplo, si quiero que aparezca el teorema de Bayes en el el índice, entonces `\index{Bayes}`, en la página apropiada \index{Bayes}. Para añadir un sub item usar `\index{Bayes!Gibbs sampling}` \index{Bayes!Gibbs sampling}
+
+# (APPENDIX) Anexo {-}
+
+# Anexo I
+
+Este es el anexo 1
+
+
+
+\begingroup
+\small
+\printindex
+\vfill
+\endgroup
+
+
+# Bibliografía {-}
+
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+\noindent
