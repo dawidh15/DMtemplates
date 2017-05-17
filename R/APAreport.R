@@ -1,10 +1,10 @@
 #' APAreport
 #'
-#' Format for creating a technical report. It is asummed that the publisher is the institution or institutions that produced the report, as no affiliation field is allowed for authors. Adapted
+#' Format for creating a technical report. Adapted
 #' from
 #' \href{http://www.LaTeXTemplates.com}{http://www.LaTeXTemplates.com}.
 #' By  Peter Wilson (herries.press@earthlink.net). Under licence CC BY-NC-SA 3.0 \href{http://creativecommons.org/licenses/by-nc-sa/3.0/}{http://creativecommons.org/licenses/by-nc-sa/3.0/},
-#' It also inherits parameters from \code{pdf_document2} from \pkg{bookdown}, by Yihui Xie et al., released under license GPL-3. Many of the preamble is based on the \code{latex.default} from \pkg{rmarkdown}. You may want to check the basics of templates \href{here}{http://ismayc.github.io/ecots2k16/template_pkg/} the \href{default.latex}{https://github.com/rstudio/rticles/blob/master/inst/rmarkdown/templates/ctex/resources/default.latex}.
+#' It also inherits parameters from \code{pdf_document2} from \pkg{bookdown}, by Yihui Xie et al., released under license GPL-3. Most of preamble is based on the \code{latex.default} from \pkg{rmarkdown}. You may want to check the basics of templates \href{here}{http://ismayc.github.io/ecots2k16/template_pkg/} the \href{default.latex}{https://github.com/rstudio/rticles/blob/master/inst/rmarkdown/templates/ctex/resources/default.latex}.
 #'
 #' @inheritParams bookdown::pdf_document2
 #' @param ... Arguments to \code{bookdown::pdf_document2}
