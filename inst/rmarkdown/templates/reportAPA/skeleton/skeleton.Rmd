@@ -264,8 +264,8 @@ Para cuadros hechos a través de una función en \textsf{R}, utilizar las siguie
     "Column name n"),
     align =c('r','c','c','c'),
     row.names = FALSE,
-    escape = TRUE,
-    booktabs=TRUE,
+    escape = FALSE,
+    booktabs=FALSE,
     longtable=TRUE,
     caption = "LongTitle")
     
