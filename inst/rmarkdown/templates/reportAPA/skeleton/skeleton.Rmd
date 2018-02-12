@@ -168,7 +168,7 @@ Se pueden usar ambientes normales de latex \index{ecuaciones}
 
 Para referenciar una ecuación se usa `\@ref(eq:foo)`, como en ecuacion \@ref(eq:foo) \index{referencias. Ecuaciones}
 
-El paquete `\usepackage{mathrsfs}` permite el uso de el símbolo de la transformada de Laplace. \verb|\mathscr{L}|:\mathscr{L}.
+El paquete `\usepackage{mathrsfs}` permite el uso de el símbolo de la transformada de Laplace. \verb|\mathscr{L}|:$\mathscr{L}$.
 
 ## Teoremas y Otros
 

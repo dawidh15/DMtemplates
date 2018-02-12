@@ -5,7 +5,7 @@ Version: 0.1.1
 Authors@R:  person("David", "Martinez Cascante", email ="dawidh15@gmail.com", role=c("aut","cre"))
 Maintainer: David Martínez <dawidh15@gmail.com>
 Description: Some technical templates to write articles and reports using rmarkdown.
-License: GPL-3
+License: file LICENSE
 Encoding: UTF-8
 URL: https://github.com/dawidh15/DMtemplates
 LazyData: true
