@@ -135,6 +135,8 @@ $$
 \SI{1000000}{\joule.\metre\per\second\cubed}.
 $$
 
+También está activo el uso de unidades binarias. Por ejemplo `\SI{8}{\kibi\bit}` es \SI{8}{\kibi\bit}.
+
 ##  Ecuaciones
 
 Se pueden usar ambientes normales de latex \index{ecuaciones}
