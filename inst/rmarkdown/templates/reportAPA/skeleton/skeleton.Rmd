@@ -109,11 +109,35 @@ x
 ```
 
 
-# Seccion
+## Crear documento usando código
+
+Para automatizar la creación de reportes en un script, se puede utilizar el siguiente código. Notar que el archivo de salida es un archivo tipo *\*.tex*. La función `rmarkdown::render` automáticamente creará el PDF.
+
+La última línea indica a \textsf{R} que deseamos abrir el archivo.
+
+```{r eval=FALSE}
+rmarkdown::render(input = "<input.Rmd>",  output_file = "<output.tex>", output_format = "DMtemplates::APAreport",clean = TRUE, encoding = "utf8")
+
+file.show("<output.pdf>")  
+
+```
+
+
+# Seccion {#secciones}
 
 \noindent Hay que añadir `\noindent` al inicio del primer párrafo de una sección para no indentarlo. Cada párrafo posterior se indentará. \index{indentación}
 
 Por ejemplo, este párrafo tiene una sangría. La sangría se controla en el preámbulo del documento.
+
+Para hacer referencia a una sección, se debe incluir una etiqueta a la par del título de la sección. De la siguiente forma:
+
+```
+# Sección 1 {#etiqueta_seccion1}
+
+## Subseccion 1.1 {#etiqueta_subseccion1.1}
+```
+
+Posteriormente, se hace referencia al *número de la sección* utilizando el comand `\@ref(etiqueta_seccion)`.  En el caso anterior, para hacer una referencia a la Sección 1, utilizaríamos el comando `\@ref(etiqueta_seccion1)`. Para hacer referencia a la subsección 1, usamos el comando `\@ref(etiqueta_subseccion1.1)`.
 
 
 ## Subsección
