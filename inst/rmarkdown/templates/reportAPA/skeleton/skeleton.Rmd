@@ -44,6 +44,8 @@ preamble: |
     
     \setlength\parindent{24pt}
     
+    \setlength{\parskip}{12pt}
+    
     \usepackage{setspace}
     
     \singlespacing
