@@ -180,6 +180,13 @@ $endif$
 \usepackage{calc}
 \usepackage{ifthen}
 \usepackage{parskip}
+\usepackage{translator}
+\sisetup{
+  list-final-separator = { \translate{and}\ },
+  list-pair-separator = { \translate{and}\ },
+  range-phrase = { \translate{to (numerical range)} }
+}
+
 
 
 
