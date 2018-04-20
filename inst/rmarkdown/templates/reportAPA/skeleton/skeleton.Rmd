@@ -163,6 +163,8 @@ $$
 
 También está activo el uso de unidades binarias. Por ejemplo `\SI{8}{\kibi\bit}` es \SI{8}{\kibi\bit}.
 
+El uso del paquete **translate** permite la traducción automatica de los rangos, y finalizadores de lista. Ejemplo `\SIrange{1}{5}{\metre}`: \SIrange{1}{5}{\metre}. O `\SIlist{1;5.5;6}{\metre}`: \SIlist{1;5.5;6}{\metre}.
+
 ##  Ecuaciones
 
 Se pueden usar ambientes normales de latex \index{ecuaciones}
