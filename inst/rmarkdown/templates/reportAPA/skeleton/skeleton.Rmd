@@ -76,6 +76,12 @@ preamble: |
     
     \newtheorem{summary}{Resumen}
     
+    \renewcommand{\topfraction}{0.8}
+    
+    \renewcommand{\textfraction}{0.1}
+    
+    \renewcommand{\floatpagefraction}{0.7}
+    
 bibliography: ExampleBIB.bib
 csl: apa.csl
 urlcolor: blue
