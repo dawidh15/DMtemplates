@@ -82,6 +82,10 @@ preamble: |
     
     \renewcommand{\floatpagefraction}{0.7}
     
+    \usepackage{float}
+    
+    \restylefloat{table}
+    
 bibliography: ExampleBIB.bib
 csl: apa.csl
 urlcolor: blue
