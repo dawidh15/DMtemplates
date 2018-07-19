@@ -132,9 +132,11 @@ A:
     \counterwithin{table}{section}
 ```
 
-# R code
+# Tips
 
-Can be inserted in regular R markdown blocks.
+## Código en R
+
+Se puede insertar código en \textsf{R}, usando el formato *R Markdown*.
 
 ```{r , echo=TRUE}
 
@@ -142,8 +144,7 @@ x <- 1:10
 x
 ```
 
-
-## Crear documento usando código
+### Crear documento usando código
 
 Para automatizar la creación de reportes en un script, se puede utilizar el siguiente código. Notar que el archivo de salida es un archivo tipo *\*.tex*. La función `rmarkdown::render` automáticamente creará el PDF.
 
@@ -162,6 +163,18 @@ file.show("<output.pdf>")
 
 ```
 
+
+## Página, márgenes, etc
+
+Se recomienda usar las opciones del paquete **geometry** de \LaTeX.
+
+Por ejemplo, para correr este documento en papel ISO A5, se usa la siguiente línea en el encabezado YAML:
+
+```
+geometry: "a5paper, top=1.8cm, bottom=2cm, left=1.5cm, right=1.8cm"
+```
+
+Una lista de tamaños de papel estándar se encuentra [aquí](https://es.sharelatex.com/learn/Page_size_and_margins).
 
 # Seccion {#secciones}
 
