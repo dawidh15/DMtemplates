@@ -24,8 +24,8 @@ lot: true
 number_sections: true
 papersize: letter
 fontsize: 12pt
-documentclass: report
-classoption: twoside, openright
+documentclass: article
+classoption: twoside
 language: "spanish"
 secnumdepth: 1
 geometry: "top=2.5cm, bottom=2.5cm, left=3cm, right=3cm"
@@ -42,6 +42,8 @@ preamble: |
     
     \rhead{D. Martinez}
     
+    \cfoot{\thepage\ \translate{of}\ \pageref{LastPage}}
+    
     \setlength\parindent{24pt}
     
     \setlength{\parskip}{12pt}
@@ -50,9 +52,9 @@ preamble: |
     
     \singlespacing
     
-    \counterwithin{figure}{chapter}
+    \counterwithin{figure}{section}
     
-    \counterwithin{table}{chapter}
+    \counterwithin{table}{section}
     
     \newtheorem{theorem}{Teorema}
     
@@ -128,7 +130,13 @@ Para automatizar la creación de reportes en un script, se puede utilizar el sig
 La última línea indica a \textsf{R} que deseamos abrir el archivo.
 
 ```{r eval=FALSE}
-rmarkdown::render(input = "<input.Rmd>",  output_file = "<output.tex>", output_format = "DMtemplates::APAreport",clean = TRUE, encoding = "utf8")
+rmarkdown::render(
+  input = "<input.Rmd>",
+  output_file = "<output.tex>",
+  output_format = "DMtemplates::APAreport",
+  clean = TRUE,
+  encoding = "utf8"
+  )
 
 file.show("<output.pdf>")  
 
