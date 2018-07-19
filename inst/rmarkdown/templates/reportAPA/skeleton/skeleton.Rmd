@@ -24,7 +24,7 @@ lot: true
 number_sections: true
 papersize: letter
 fontsize: 12pt
-documentclass: article
+documentclass: report
 classoption: twoside
 language: "spanish"
 secnumdepth: 1
@@ -44,6 +44,8 @@ preamble: |
     
     \cfoot{\thepage\ \translate{of}\ \pageref{LastPage}}
     
+    \fancypagestyle{plain}{\fancyhf{}\cfoot{\thepage\ \translate{of}\ \pageref{LastPage} }}
+    
     \setlength\parindent{24pt}
     
     \setlength{\parskip}{12pt}
@@ -52,9 +54,9 @@ preamble: |
     
     \singlespacing
     
-    \counterwithin{figure}{section}
+    \counterwithin{figure}{chapter}
     
-    \counterwithin{table}{section}
+    \counterwithin{table}{chapter}
     
     \newtheorem{theorem}{Teorema}
     
@@ -111,6 +113,24 @@ knitr::knit_hooks$set(inline = identity)
 - Instalar todos los paquetes de R en la librería por defecto
 
 - Ir al `Package Manager (Admin)` y verificar que "xetex" esté instalado
+
+**Tengo un error cuando cambio de _report_ a _article_**
+
+Se debe cambiar las líneas del preámbulo de:
+
+```
+    \counterwithin{figure}{chapter}
+    
+    \counterwithin{table}{chapter}
+```
+
+A:
+
+```
+    \counterwithin{figure}{section}
+    
+    \counterwithin{table}{section}
+```
 
 # R code
 
