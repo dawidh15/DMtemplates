@@ -1,7 +1,7 @@
 Package: DMtemplates
 Type: Package
 Title: Templates to write Rmarkdown documents
-Version: 0.10.0
+Version: 0.10.1
 Authors@R:  person("David", "Martinez Cascante", email ="dawidh15@gmail.com", role=c("aut","cre"))
 Maintainer: David Martínez <dawidh15@gmail.com>
 Description: Some technical templates to write articles and reports using rmarkdown.
