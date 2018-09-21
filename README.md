@@ -1,6 +1,6 @@
 # DMtemplates
 
-This is a package that contains basic APA rules, for a technical report or a technical article. 
+This is a package that contains basic APA rules, to write a technical report or a technical article. 
 
  The template for the title page has been downloaded from:
  http://www.LaTeXTemplates.com
@@ -16,3 +16,9 @@ This is a package that contains basic APA rules, for a technical report or a tec
 
  Instructions for using this template:
  This template is called from the package DMtemplates, from David Martinez.
+ 
+Install using:
+
+```
+devtools::install_github('dawidh15/DMtemplates')
+```
