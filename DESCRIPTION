@@ -1,15 +1,15 @@
 Package: DMtemplates
 Type: Package
 Title: Templates to write Rmarkdown documents
-Version: 0.10.1
-Authors@R:  person("David", "Martinez Cascante", email ="dawidh15@gmail.com", role=c("aut","cre"))
+Version: 0.10.2
+Authors@R: person("David", "Martinez Cascante", email ="dawidh15@gmail.com", role=c("aut","cre"))
 Maintainer: David Martínez <dawidh15@gmail.com>
 Description: Some technical templates to write articles and reports using rmarkdown.
 License: file LICENSE
 Encoding: UTF-8
 URL: https://github.com/dawidh15/DMtemplates
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
 Imports:
     bookdown
 Suggests:

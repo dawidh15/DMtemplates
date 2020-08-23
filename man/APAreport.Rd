@@ -4,8 +4,15 @@
 \alias{APAreport}
 \title{APAreport}
 \usage{
-APAreport(toc = TRUE, year, publisher = "PUBLISHER", preamble, fancyHeader,
-  latex_engine = "xelatex")
+APAreport(
+  toc = TRUE,
+  year,
+  publisher = "PUBLISHER",
+  preamble,
+  fancyHeader,
+  latex_engine = "xelatex",
+  ...
+)
 }
 \arguments{
 \item{toc}{Logic variable indicating if Table of Contents should be included. Type it in YAML header.}
