@@ -26,7 +26,7 @@ papersize: letter
 fontsize: 12pt
 documentclass: report
 classoption: twoside
-language: "spanish"
+language: spanish
 secnumdepth: 1
 geometry: "top=2.5cm, bottom=2.5cm, left=3cm, right=3cm"
 fancyHeader: true
@@ -130,8 +130,12 @@ A:
     \counterwithin{figure}{section}
     
     \counterwithin{table}{section}
+    
 ```
 
+**Tengo un error cuando cambio de lenguaje**
+
+- Revisar si en la carpeta existe un archivo con la extensión `.aux` y borrarlo. Explicación en [este link](https://tex.stackexchange.com/questions/168675/unable-to-get-rid-of-error-babel-you-havent-defined-the-language-en-yet).
 # Tips
 
 ## Código en R
