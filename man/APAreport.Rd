@@ -10,7 +10,8 @@ APAreport(
   publisher = "PUBLISHER",
   preamble,
   fancyHeader,
-  latex_engine = "xelatex"
+  latex_engine = "xelatex",
+  ...
 )
 }
 \arguments{

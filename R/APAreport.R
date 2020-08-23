@@ -37,7 +37,8 @@ APAreport <- function(toc = TRUE,
                       publisher="PUBLISHER",
                       preamble,
                       fancyHeader,
-                      latex_engine="xelatex"
+                      latex_engine="xelatex",
+                      ...
                       ) {
 
   # get the locations of resource files located within the package
