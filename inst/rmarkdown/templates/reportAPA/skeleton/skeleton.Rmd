@@ -385,7 +385,49 @@ Se establece que este sistema será el único permitido para actos legales. Adem
 
 Se establece que este sistema será el único permitido para actos legales. Además, se autoriza al Poder Ejecutivo a colectar los pesos y medidas que deben servir como "modelo", a través de los cuales se emitirán los reglamentos respectivos.
 
+# Figuras
 
+## RMarkdown
+
+Las figuras pueden seguir el estilo de **RMarkdown**. Es decir, pueden generarse directamente usando código en R, y citarse usando las reglas de **RMarkdown**.
+
+## Latex
+
+La otra forma de usar figuras es combinando las reglas de **markdown** con algunas adiciones de **Latex** (solo para PDFs). 
+
+El uso básico de una figura en markdown es:
+
+```
+![El título de la figura](carpeta/nombre.<extension>)
+```
+
+Una figura puede citarse en texto usando comandos en **Latex**, por ejemplo: `Figura \ref{fig:figLabel}`. Pero, para ello debe agregarse la etiqueta al título de la siguiente forma:
+
+```
+![El título de la figura\label{fig:figLabel}](carpeta/nombre.<extension>)
+```
+
+### Figuras en *landscape* (PDFs)
+
+Lo mejor es utilizar el paquete **rotating** en combinación con el paquete **graphicx**. El primer paso es agregar los paquetes al preámbulo de Latex, en el encabezado YAML:
+
+```
+  \usepackage{rotating}
+  \usepackage{graphicx}
+  \graphicspath{ {fig/} } % Una ruta con la carpeta de figuras
+```
+
+Luego, en el lugar del documento donde vaya la figura, se puede utilizar esta plantilla, reemplazando los valores entre cuñas por las rutas y nombres apropiados.
+
+```
+\begin{sidewaysfigure}[h] % htb! Here, Top, Bottom, ! force
+    \centering
+    \includegraphics[width=0.95\textwidth]{<nombre_figura_sin_extension>}
+    \caption{<título>}
+    \label{fig:<etiqueta>}
+\end{sidewaysfigure}
+
+```
 
 # Citas
 
