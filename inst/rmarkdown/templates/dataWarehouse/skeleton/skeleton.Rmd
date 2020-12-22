@@ -1,0 +1,113 @@
+---
+title: "Nombre del proyecto"
+subtitle: "Documentación del almacén de datos"
+authors: 
+- name: |
+      David Antonio Martínez Cascante,  
+      Author 1 b
+  affiliation: Consultor independiente
+  
+date:  "`r format(Sys.Date(), '%d de %B, %Y')`"
+publisher: "Empresa dueña de la documentación"
+output: DMtemplates::dataWarehouse
+latex_engine: xelatex
+toc: true
+toc-depth: 2
+lof: true
+lot: true
+number_sections: true
+papersize: letter
+fontsize: 12pt
+documentclass: report
+classoption: twoside
+language: spanish
+secnumdepth: 1
+geometry: "top=2.5cm, bottom=2.5cm, left=3cm, right=3cm"
+fancyHeader: true
+mainfont: Cambria
+mathfont: Cambria
+sansfont: Arial
+preamble: |
+    \usepackage{fancyhdr}
+    
+    \pagestyle{fancy}
+    
+    \lhead{Almacén de datos}
+    
+    \rhead{D. Martinez}
+    
+    \cfoot{\thepage\ \translate{of}\ \pageref{LastPage}}
+    
+    \fancypagestyle{plain}{\fancyhf{}\cfoot{\thepage\ \translate{of}\ \pageref{LastPage} }}
+    
+    \setlength\parindent{24pt}
+    
+    \setlength{\parskip}{12pt}
+    
+    \usepackage{setspace}
+    
+    \singlespacing
+    
+    \counterwithin{figure}{chapter}
+    
+    \counterwithin{table}{chapter}
+    
+    \newtheorem{definition}{Definición}
+
+    \newtheorem{example}{Ejemplo}
+    
+    \newtheorem{exercise}{Ejercicio}
+    
+    \newtheorem{solution}{Solución\;\thesection\,.}
+    
+    \newtheorem{summary}{Resumen}
+    
+    \renewcommand{\topfraction}{0.8}
+    
+    \renewcommand{\textfraction}{0.1}
+    
+    \renewcommand{\floatpagefraction}{0.7}
+    
+    \usepackage{float}
+    
+    \restylefloat{table}
+    
+bibliography: ExampleBIB.bib
+csl: apa.csl
+urlcolor: blue
+citecolor: black
+linkcolor: black
+year: "`r as.POSIXlt(Sys.time())$year+1900`"
+spacing: siglespacing
+---
+
+```{r settings}
+knitr::knit_hooks$set(inline = identity) 
+```
+
+
+
+
+
+# (APPENDIX) Anexo {-}
+
+# Anexo I
+
+Este es el anexo 1
+
+
+
+\begingroup
+\small
+\printindex
+\vfill
+\endgroup
+
+
+# Bibliografía {-}
+
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+\noindent
