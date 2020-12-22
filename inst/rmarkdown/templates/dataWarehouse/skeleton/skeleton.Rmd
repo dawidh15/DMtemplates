@@ -86,8 +86,73 @@ knitr::knit_hooks$set(inline = identity)
 ```
 
 
+# Alcance {#scope}
+\index{A!Alcance}
+
+## Contexto {#background}
+\index{C!Contexto}
+
+Breve descripción de la empresa institución.
+
+Qué desea lograr la empresa/institución con este proyecto. Describir de manera gruesa las métricas de éxito en general, tanto métricas como categóricas.
+
+## Alcance del proyecto {#projectscope}
+\index{A!Alcance}
+
+Cubrir aspectos como:
+
+- Delimitación temporal de la información que contendrá el DW.
+- Procesos estratégicos, tácticos u operativos contemplados.
+- Alcance de usuarios.
+- Arquitectura técnica del proyecto.
+
+## Elementos fuera del alcance del proyecto {#exlusionsfromscope}
+\index{E!Exclusiones del alcance}\index{A!Alcance!exclusiones}
+
+- Fuentes de datos o procesos que quedan por fuera del proyecto.
+- Usuarios y soporte que queda fuera del proyecto.
+- Características técnicas que quedan por fuera.
+
+## Criterios de éxito {#successcriteria}
+\index{C!Criterios de éxito}\index{A!Alcance!criterios de éxito}
+
+- Incluir a nivel de características disponibles para el usuario (no tanto en enfoque técnico, a menos que sea necesario).
+
+## Riesgos y Plan de reducción de riesgos {#risks}
+\index{R!Riesgos}\index{R!Riesgos!plan de reducción}\index{P!Plan!de reducción de riesgos}
+
+- Listar algunos supuestos a nivel de proyecto y mantenimiento del proyecto.
+    - Por ejemplo, existencia de un TI con conocimiento en administración de bases de datos. O el mantenimiento de tareas programadas como en el *SQL Server Agent*.
+- No incluir riesgos sobre el desarrollo del proyecto (eso se maneja a otro nivel, como en términos de referencia o contrato).
 
 
+# Justificación {#justification}
+\index{J!Justificación}
+
+**Negocios**: Crear un caso de negocios, tomar en cuenta los beneficios tangibles e intangibles. Construir índices financieros como el ROI, al determinar los costos del proyecto y las entradas.
+
+Costos:
+
+- Hardware.
+- Software.
+- Personal interno.
+- Personal/Recursos externo.
+- Costos de mantenimiento/soporte.
+- Costos para apoyar el escalamiento del proyecto.
+
+# Roles {#roles}
+\index{R!Roles}
+
+Los roles (funciones) del proyecto. Asignar los roles a "personas" (no a personas físicas, pero a puestos dentro de la empresa). Por ejemplo: el jefe del departamento de informática (*persona*) es el encargado de administrar la base de datos, director del programa del almacén de datos, y el gestor de seguridad (*roles*)
+
+# Plan de comunicación {#comunicationplan}
+\index{C!Comunicación!Plan de}\index{P!Plan!de comunicaciones}
+
+
+# Seguimiento de problemas y control de cambios {#issuesandcontrol}
+\index{P!Problemas!seguimiento de}\index{B!Bugs}\index{I!Issues}\index{C!Control de versión}\index{V!Versión!control de}
+
+Indicar los sitios para controlar la calidad y la versión del producto. Indicar usuarios y la ubicación de contraseñas.
 
 # (APPENDIX) Anexo {-}
 
