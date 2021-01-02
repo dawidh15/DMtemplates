@@ -140,6 +140,22 @@ Costos:
 - Costos de mantenimiento/soporte.
 - Costos para apoyar el escalamiento del proyecto.
 
+# Requisitos {#requisitos}
+\index{R!Requisitos}
+
+Los requisitos se deben presentar en dos niveles: a nivel de programa y a nivel de proyecto. El nivel de programa presenta los requisitos de la empresa, institución u organización. El nivel de proyecto, presenta los requisitos a nivel de proceso [@Kimball2008, capítulo 3].
+
+Esta sección debe estar organizada en:
+
+- Resumen ejecutivo.
+- Resumen sobre cómo se definieron los requerimientos, la metodología y participantes.
+- *Data Warehouse bus Matrix* en un nivel alto.
+- Criteros preliminares de éxito.
+- Requerimientos del negocio, separados por procesos.
+    - Descripción narrativa de los requerimientos, de las métricas generadas por el proceso. Además, describir los principales obstáculos actuales y potenciales.
+    - Preguntas típicas que podrían ser respondidas vía una mayor disponibilidad y acceso a los datos.
+    - Evaluación inicial sobre la factibilidad de los datos.
+
 # Roles {#roles}
 \index{R!Roles}
 
