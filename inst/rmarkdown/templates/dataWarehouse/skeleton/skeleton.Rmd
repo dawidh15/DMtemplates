@@ -85,6 +85,7 @@ spacing: siglespacing
 knitr::knit_hooks$set(inline = identity) 
 ```
 
+Ver la lista completa de tareas para un proyecto de *data warehousing* en *docs_apoyo/PRJ_tasklist_Kimball.xls*.
 
 # Alcance {#scope}
 \index{A!Alcance}
@@ -143,7 +144,7 @@ Costos:
 # Requisitos {#requisitos}
 \index{R!Requisitos}
 
-Los requisitos se deben presentar en dos niveles: a nivel de programa y a nivel de proyecto. El nivel de programa presenta los requisitos de la empresa, institución u organización. El nivel de proyecto, presenta los requisitos a nivel de proceso [@Kimball2008, capítulo 3].
+Los requisitos se deben presentar en dos niveles: a nivel de programa y a nivel de proyecto. El nivel de programa presenta los requisitos de la empresa, institución u organización. El nivel de proyecto, presenta los requisitos a nivel de proceso [@Kimball2008, capítulo 3]. 
 
 Esta sección debe estar organizada en:
 
@@ -155,21 +156,85 @@ Esta sección debe estar organizada en:
     - Descripción narrativa de los requerimientos, de las métricas generadas por el proceso. Además, describir los principales obstáculos actuales y potenciales.
     - Preguntas típicas que podrían ser respondidas vía una mayor disponibilidad y acceso a los datos.
     - Evaluación inicial sobre la factibilidad de los datos.
+    
+Material de @Kimball2008:
+
+- Invitación a sesión de requerimientos en *docs_apoyo/REQ-Interview-Letter.doc*.
+- Agenda para la sesión de inicio de proyecto en *docs_apoyo/REQ-User-Kickoff-Agenda.doc*.
+- Cuestionario sobre requerimientos en *docs_apoyo/REQ-Iterview-Questionnaire.doc*.
 
 # Roles {#roles}
 \index{R!Roles}
 
 Los roles (funciones) del proyecto. Asignar los roles a "personas" (no a personas físicas, pero a puestos dentro de la empresa). Por ejemplo: el jefe del departamento de informática (*persona*) es el encargado de administrar la base de datos, director del programa del almacén de datos, y el gestor de seguridad (*roles*)
 
-# Plan de comunicación {#comunicationplan}
+# Plan de comunicación {#plandecomunicacion}
 \index{C!Comunicación!Plan de}\index{P!Plan!de comunicaciones}
 
 
-# Seguimiento de problemas y control de cambios {#issuesandcontrol}
+# Seguimiento de problemas y control de cambios {#seguimientodeproblemasycontroldecambios}
 \index{P!Problemas!seguimiento de}\index{B!Bugs}\index{I!Issues}\index{C!Control de versión}\index{V!Versión!control de}
 
 Indicar los sitios para controlar la calidad y la versión del producto. Indicar usuarios y la ubicación de contraseñas.
 
+# Arquitectura {#arquitectura}
+\index{A!arquitectura}
+
+La arquitectura describe el *cómo se hará*; para eso es necesario saber *qué se hará*, cuya respuesta es dada por los requisitos. La arquitectura debe separarse en 3 partes: arquitectura de la aplicación, infraestructura y arquitectura de datos.
+
+
+![Arquitectura a nivel alto.](fig/arquitectura.png){width=100%}
+\FloatBarrier
+
+## Plan de arquitectura {#plandearquitectura}
+\index{P!Plan de arquitectura}\index{A!Arquitectura!Plan de}
+
+El plan de arquitectura de tener una estructura similar al siguiente modelo:
+
+1. Resumen Ejecutivo.
+    1. Entendimiento del negocio.
+    1. Enfoque del Proyecto.
+1. Metodología.
+    1. Requerimientos de negocio (elaborado a partir del documento de implicaciones arquitectónicas).
+    1. Desarrollo arquitectónico (alto nivel).
+    1. Productos y normas existentes relacionadas con arquitectura.
+    1. Mejoras en proceso.
+1. Requerimientos e implicaciones arquitectónicas
+    1. Detallar por proceso (usar el documento de implicaciones arquitectónicas).
+    1. Incluir problemas comunes:
+        1. Calidad de datos.
+        1. Elementos comunes, y definiciones del negocio.
+1. Resumen Arquitectónico.
+    1. Modelo de nivel alto.
+    1. Metadatos.
+    1. Capas flexibles de servicios (tareas como creación de tablas recuperación de datos, flujo de datos).
+1. Elementos arquitectónicos principales.
+    1. Funciones y servicios.
+        1. Servicios de ETL.
+        1. Servicios de acceso a datos externos.
+        1. Mantenimiento de datos.
+    1. Ubicación de datos.
+        1. Fuentes de datos, y datos de referencia.
+        1. *ETL Data Stagging*.
+        1. Servidores de presentación.
+        1. Repositorios de metadatos.
+    1. Infraestructura y utilidades.
+    1. Estrategia de metadatos.
+1. Proceso de desarrollo de arquitectura.
+    1. Fases del desarrollo arquitectónico.
+    1. Pruebas de concepto.
+    1. Selección de productos y normas.
+    1. Matriz Bus de alto nivel para el negocio.
+1. Apéndices: Modelos arquitectónicos.
+1. Apéndices: Resumen de entrevistas sobre requerimientos arquitectónicos.
+
+Material de apoyo @Kimball2008:
+
+- Tabla de contenidos del Plan Arquitectónico: *docs_apoyo/ARQ-ToC.doc*.
+- Hoja electrónica para selección de productos ETL en: *docs_apoyo/ARQ-Seleccion_Productos.ods* (ESP).
+- ERD con tablas para contener metadatos del almacén: *docs_apoyo/ARQ-Metadata diagram.ppt*.
+- SQL para construir las tablas de metadatos en *docs_apoyo/Metadata diagram.sql*.
+    
 # (APPENDIX) Anexo {-}
 
 # Anexo I
