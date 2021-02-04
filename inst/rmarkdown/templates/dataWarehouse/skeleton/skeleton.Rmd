@@ -162,6 +162,7 @@ Material de @Kimball2008:
 - Invitación a sesión de requerimientos en *docs_apoyo/REQ-Interview-Letter.doc*.
 - Agenda para la sesión de inicio de proyecto en *docs_apoyo/REQ-User-Kickoff-Agenda.doc*.
 - Cuestionario sobre requerimientos en *docs_apoyo/REQ-Iterview-Questionnaire.doc*.
+- Basic/Detailed Bus Matrix *docs_apoyo/Matrix Bus.ods*
 
 # Roles {#roles}
 \index{R!Roles}
@@ -191,42 +192,92 @@ La arquitectura describe el *cómo se hará*; para eso es necesario saber *qué 
 
 El plan de arquitectura de tener una estructura similar al siguiente modelo:
 
-1. Resumen Ejecutivo.
-    1. Entendimiento del negocio.
-    1. Enfoque del Proyecto.
-1. Metodología.
-    1. Requerimientos de negocio (elaborado a partir del documento de implicaciones arquitectónicas).
-    1. Desarrollo arquitectónico (alto nivel).
-    1. Productos y normas existentes relacionadas con arquitectura.
-    1. Mejoras en proceso.
-1. Requerimientos e implicaciones arquitectónicas
-    1. Detallar por proceso (usar el documento de implicaciones arquitectónicas).
-    1. Incluir problemas comunes:
-        1. Calidad de datos.
-        1. Elementos comunes, y definiciones del negocio.
-1. Resumen Arquitectónico.
-    1. Modelo de nivel alto.
-    1. Metadatos.
-    1. Capas flexibles de servicios (tareas como creación de tablas recuperación de datos, flujo de datos).
-1. Elementos arquitectónicos principales.
-    1. Funciones y servicios.
-        1. Servicios de ETL.
-        1. Servicios de acceso a datos externos.
-        1. Mantenimiento de datos.
-    1. Ubicación de datos.
-        1. Fuentes de datos, y datos de referencia.
-        1. *ETL Data Stagging*.
-        1. Servidores de presentación.
-        1. Repositorios de metadatos.
-    1. Infraestructura y utilidades.
-    1. Estrategia de metadatos.
-1. Proceso de desarrollo de arquitectura.
-    1. Fases del desarrollo arquitectónico.
-    1. Pruebas de concepto.
-    1. Selección de productos y normas.
-    1. Matriz Bus de alto nivel para el negocio.
-1. Apéndices: Modelos arquitectónicos.
-1. Apéndices: Resumen de entrevistas sobre requerimientos arquitectónicos.
+## Resumen Ejecutivo {#arqresumenejecutivo}
+
+### Entendimiento del negocio {#arqentendimientodelnegocio}
+
+### Enfoque del Proyecto {arqenfoquedelproyecto}
+
+## Metodología {#arqmetodologia}
+
+### Requerimientos de negocio {#arqrequerimientosdelnegocio}
+(elaborado a partir del documento de implicaciones arquitectónicas)
+
+### Desarrollo arquitectónico {#arqdesarrolloarquitectonico}
+(alto nivel)
+
+### Productos y normas existentes {#arqproductosynormasexistentes}
+
+### Mejoras en proceso {#arqmejorasenproceso}
+
+
+## Requerimientos e implicaciones arquitectónicas {#requerimientoseimplicaciones}
+Detallar por proceso (usar el documento de implicaciones arquitectónicas)
+
+- Incluir problemas comunes:
+- Calidad de datos.
+- Elementos comunes, y definiciones del negocio.
+
+## Resumen Arquitectónico {#resumenarquitectonico}
+
+### Modelo de nivel alto
+
+### Metadatos
+
+### Capas flexibles de servicios
+(tareas como creación de tablas recuperación de datos, flujo de datos).
+
+
+## Elementos arquitectónicos principales {#arqelementosarquitectonicosprincipales}
+
+### Funciones y servicios
+
+#### Servicios de ETL
+
+#### Servicios de acceso a datos externos
+
+#### Mantenimiento de datos
+
+### Ubicación de datos
+
+#### Fuentes de datos, y datos de referencia
+
+#### *ETL Data Stagging*
+
+#### Servidores de presentación
+
+#### Repositorios de metadatos
+
+### Infraestructura y utilidades
+
+### Estrategia de metadatos
+
+
+## Proceso de desarrollo de arquitectura {#procesodedesarrollo}
+
+### Fases del desarrollo arquitectónico
+
+### Pruebas de concepto
+
+### Selección de productos y normas
+
+### Matriz Bus de alto nivel para el negocio
+
+## Estrategia de metadatos {#estrategiademetadatos}
+
+## Inventario de metadatos {#inventariodemetadatos}
+
+## Herramientas de captura y sincronización de metadatos {#herramientasdecaptura}
+
+## Políticas de seguridad y sensibilidad de datos {#politicasdeseguridad}
+
+## Sistema de monitoreo y cumplimiento de seguridad {#sistemademonitoreo}
+
+## Mapa de Infraestructura {#mapadeinfraestructura}
+
+## Apéndices: Modelos arquitectónicos {-}
+
+## Apéndices: Resumen de entrevistas sobre requerimientos arquitectónicos {-}
 
 Material de apoyo @Kimball2008:
 
