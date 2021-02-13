@@ -127,6 +127,7 @@ Cubrir aspectos como:
 - No incluir riesgos sobre el desarrollo del proyecto (eso se maneja a otro nivel, como en términos de referencia o contrato).
 
 
+
 # Justificación {#justification}
 \index{J!Justificación}
 
@@ -140,6 +141,7 @@ Costos:
 - Personal/Recursos externo.
 - Costos de mantenimiento/soporte.
 - Costos para apoyar el escalamiento del proyecto.
+
 
 # Requisitos {#requisitos}
 \index{R!Requisitos}
@@ -164,19 +166,23 @@ Material de @Kimball2008:
 - Cuestionario sobre requerimientos en *docs_apoyo/REQ-Iterview-Questionnaire.doc*.
 - Basic/Detailed Bus Matrix *docs_apoyo/Matrix Bus.ods*
 
+
 # Roles {#roles}
 \index{R!Roles}
 
 Los roles (funciones) del proyecto. Asignar los roles a "personas" (no a personas físicas, pero a puestos dentro de la empresa). Por ejemplo: el jefe del departamento de informática (*persona*) es el encargado de administrar la base de datos, director del programa del almacén de datos, y el gestor de seguridad (*roles*)
 
+
 # Plan de comunicación {#plandecomunicacion}
 \index{C!Comunicación!Plan de}\index{P!Plan!de comunicaciones}
+
 
 
 # Seguimiento de problemas y control de cambios {#seguimientodeproblemasycontroldecambios}
 \index{P!Problemas!seguimiento de}\index{B!Bugs}\index{I!Issues}\index{C!Control de versión}\index{V!Versión!control de}
 
 Indicar los sitios para controlar la calidad y la versión del producto. Indicar usuarios y la ubicación de contraseñas.
+
 
 # Arquitectura {#arquitectura}
 \index{A!arquitectura}
@@ -286,6 +292,74 @@ Material de apoyo @Kimball2008:
 - ERD con tablas para contener metadatos del almacén: *docs_apoyo/ARQ-Metadata diagram.ppt*.
 - SQL para construir las tablas de metadatos en *docs_apoyo/Metadata diagram.sql*.
     
+
+# Modelo Dimensional {#modelodimensional}
+\index{M!Modelo dimensional}
+
+Esta sección presenta el modelo teórico (independiente de la plataforma final RDBMS) del almacén de datos. Se calcula de 3-4 semanas por tabla de hechos, dependiendo de la complejidad y número de dimensiones. Revisar los capitulos 6 y 7 de  @Kimball2008. Los principales productos son:
+
+- Descripción breve del proceso de negocio incluído en el diseño.
+- Discusión en nivel alto sobre los requerimientos que serán soportados, referenciando al documento detallado de requerimientos.
+- Diagrama del modelo a nivel alto (dimensiones y hechos)(ver *DIM-High level model diagram.ppt*.
+- Lista de atributos y métricas.
+- Hoja detallada del diseño dimensional (*DIM-Example-Data-Model-Information.xls*).
+- Lista de problemas (*issues*).
+- Discusión de limitaciones del diseño con respecto al alcance del proyecto y requerimientos del negoció.
+- Otros puntos como compromisos de diseño, preocupaciones sobre la fuente de datos, etc.
+- Esquema inicial de mapeo de datos desde la fuente al objetivo.
+
+
+# Diseño físico y desempeño {#diseñofisicoydesempeño}
+\index{D!Diseño físico de la base de datos}\index{D!Desempeño del almacén}
+
+Para referencia revisar capítulo 8 de @Kimball2008 y el documento de apoyo  *docs_apoyo/PHY-Physical-Model-Template.xls*. Los principales productos son:
+
+- Estándares: Desarrollar un vocabulario y procedimientos normalizados de uso general en el almacén
+  - Vocabulario y convenciones para nombrar.
+  - Uso o no uso de valores nulos.
+  - Ubicación y seguridad de *stagging tables*.
+  - Normalización para la ubicación de archivos.
+  - Uso de sinónimos, vistas, procedimientos almacenados, esquemas, etc. para acceder a tablas según los usuarios.
+  - Claves primarias.
+  - Claves secundarias.
+- Modelo físico: traducir el modelo dimensional a tablas dentro del RDBMS.
+  - Finalizar el mapeo detallado de datos desde la fuente hasta las tablas físicas.
+  - Consolidar el diseño en *Star* o *Snowflake*.
+  - Usar herramientas de modelado si es posible.
+  - Desarrollar estimados iniciales del tamaño.
+- Construir la base de datos en ambiente de desarrollo.
+- Diseñar bodegas para procesamiento de datos.
+  - Considerar tablas especiales y esquemas especiales como: *stagging tables* para ETL; Tablas y campos para auditorías; tablas para el monitoreo del uso de la base de datos; tablas de seguridad.
+- Desarrollar el plan de indexado:
+  - Investigar las optimizaciones que ofrece el RDBMS para almacenes de datos.
+  - *B-Tree y clustered indexes*: Columnas con alta cardinalidad (muchas categorías, o variables contínuas).
+  - *Bitmap indexes*: Para baja cardinalidad.
+  - [*Columnstore clustered indexes*](https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-design-guidance?view=sql-server-ver15): Especial para fact tables.
+  - Mantenimiento y reconstrucción de índices después de una carga de datos.
+  - Indexar todos los campos y atributos de las tablas dimensionales comunes en consultas.
+- Diseñar la base de datos OLAP.
+- Construir la base de datos de prueba (lo más similar en hardware y arquitectura a la de producción, ojalá con datos reales).
+- Diseñar las agregaciones.
+  - Materialized Views (Oracle, PostgreSQL).
+  - Indexed Views (SQL Server).
+  - Investigar si las agregaciones son utilizadas por en el *query plan* del RDBMS.
+  - Investigar cómo mantener la agregación después de cargar los datos.
+  - Probar el desempeño de los índices y consolidar el plan de indexado.
+- Diseñar y construir la instancia de la base de datos real.
+  - Considerar la memoria de acuerdo con las consultas hechas a la base de datos.
+  - *Block size*: Preferir bloques grandes, especialmente si los índices son cargados de manera consecutiva (*identity, sequence*). Preferir bloques pequeños si los índices están muy fragmentados, y los patrones de acceso son impredecibles (ejemplo claves basadas en GUID).
+  - Guardar y controlar la versión de los scripts para crear la base de datos.
+- Desarrollar la estructura física de almacenamiento.
+  - Incluye la estructura de bloques, archivos, discos, particiones, espacios de tablas y bases de datos.
+  - Desarrollar el plan de particiones:
+    - Considerar dimensiones y hechos de uso común, y separarlas en discos diferentes de ser posible usando *filegroups* (SQL Server). Esto incrementa la velocidad del I/O en las consultas.
+    - Separar grandes tablas de hechos en particiones de acuerdo con la fecha de los eventos registrados.
+    - Considerar hacer particiones cuando las tablas de hechos sean mayores a \SI{100}{\gibi\byte}.
+  - Considerar un almacenamiento de 3 a 4 veces superior al calculado según el modelo dimensional (para logs, tablas auditadas, monitoreo de usuarios, etc.)
+  - Tolerancia a fallos:
+    - Usar RAID5 o superior: Este es un sistema que refleja los datos de un disco en otro (o varios) discos de respaldo.
+
+
 # (APPENDIX) Anexo {-}
 
 # Anexo I
